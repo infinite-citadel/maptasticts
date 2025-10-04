@@ -1,1 +1,4 @@
 node_modules/
+
+.parcel-cache/
+example/simple/.parcel-cache

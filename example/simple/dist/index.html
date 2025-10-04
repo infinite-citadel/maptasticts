@@ -1,21 +1,25 @@
-<html>
-
-<head>
-<style>
-
-body{
-	margin:0;
-	padding:0;
-	background:black;
-	color:white;
+<html><head>
+		<style>body {
+  background: #000;
+  margin: 0;
+  padding: 0;
 }
 
-</style>
-</head>
+#simple-1 {
+  background: green;
+  width: 300px;
+  height: 300px;
+}
 
-<body style="background:#000;">
-	<pre id="controls" style="width:600px; height:250px; background:#404040">
-SHIFT-Space: Toggle edit mode
+#simple-2 {
+  background: red;
+  width: 300px;
+  height: 300px;
+}
+</style>
+	</head>
+<body>
+	<pre id="controls" style="color: #fff; background: #404040; width: 600px; height: 250px; position: fixed; bottom: 0; right: 0; overflow-y: scroll">SHIFT-Space: Toggle edit mode
 
 In Edit Mode
 
@@ -32,12 +36,12 @@ ALT + Arrow keys:   rotate/scale selected quad
 'v':                Flip selected layer vertically
 'b':                Show/Hide projector bounds
 	</pre>
-	<iframe src="https://player.vimeo.com/video/108531008" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen id="video-test"></iframe>
 
-	<script src="../dist/index.cjs"></script>
-	<script>
-		new Maptastic("video-test", "controls");
-	</script>
-</body>
+		<div id="simple-1">This is pretty simple.</div>
+		<div id="simple-2">Just pass in some different objects</div>
 
-</html>
+		<script type="module" src="/simple.1fcc916e.js"></script>
+
+	
+	
+</body></html>

@@ -1,0 +1,74 @@
+type Point = [number, number];
+type Layer = {
+    id: string;
+    targetPoints: Point[];
+    visible: boolean;
+    width: number;
+    height: number;
+    element: HTMLElement;
+    sourcePoints: Point[];
+};
+type Layout = Pick<Layer, "sourcePoints" | "targetPoints" | "id">[];
+type MaptasticConfig = {
+    labels?: boolean;
+    crosshairs?: boolean;
+    screenbounds?: boolean;
+    autoSave?: boolean;
+    autoLoad?: boolean;
+    layers?: Array<string | HTMLElement>;
+    onChange?: () => void;
+    localStorageKey?: string;
+};
+declare class Maptastic {
+    showLayerNames: boolean;
+    showCrosshairs: boolean;
+    showScreenBounds: boolean;
+    autoSave: boolean;
+    autoLoad: boolean;
+    layoutChangeListener: () => void;
+    localStorageKey: string;
+    canvas: HTMLCanvasElement | null;
+    context: CanvasRenderingContext2D | null;
+    layerList: Array<string | HTMLElement>;
+    layers: Layer[];
+    configActive: boolean;
+    dragging: Boolean;
+    dragOffset: [number, number] | null;
+    selectedLayer: Layer | null;
+    selectedPoint: Point | null;
+    selectionRadius: number;
+    hoveringPoint: Point | null;
+    hoveringLayer: Layer | null;
+    dragOperation: "move";
+    isLayerSoloed: boolean;
+    mousePosition: [number, number] | null;
+    mouseDownPoint: [number, number] | null;
+    constructor(config: MaptasticConfig | string | HTMLElement);
+    notifyChangeListener(): void;
+    private draw;
+    resize(): void;
+    mouseMove: (event: MouseEvent) => void;
+    mouseUp: (event: MouseEvent) => void;
+    mouseDown: (event: MouseEvent) => false | undefined;
+    keyDown: (event: KeyboardEvent) => void;
+    init(): void;
+    updateTransform(): void;
+    swapLayerPoints(layerPoints: Point[], index1: number, index2: number): void;
+    rotateLayer(layer: Layer, angle: number): void;
+    scaleLayer(layer: Layer, scale: number): void;
+    addLayer(target: string | HTMLElement, targetPoints?: Point[]): void;
+    getLayout(layers: Layer[]): {
+        id: string;
+        targetPoints: [number, number][];
+        sourcePoints: [number, number][];
+        element: HTMLElement;
+    }[];
+    setLayout(layout: Layout): void;
+    setConfigEnabled(enabled: boolean): void;
+    saveSettings(): void;
+    clearSettings(): void;
+    loadSettings(): void;
+}
+
+export { Maptastic as default };
+export type { Layer, MaptasticConfig, Point };

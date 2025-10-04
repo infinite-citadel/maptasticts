@@ -1,0 +1,35 @@
+{
+  "name": "maptastic",
+  "version": "0.0.0",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.cts",
+  "exports": {
+    "require": {
+      "types": "./dist/index.d.cts",
+      "default": "./dist/index.cjs"
+    },
+    "import": {
+      "types": "./dist/index.d.mts",
+      "default": "./dist/index.mjs"
+    }
+  },
+  "scripts": {
+    "prepare": "npm run build",
+    "build": "pkgroll --sourcemap",
+    "watch:build": "pkgroll --watch --sourcemap"
+  },
+  "devDependencies": {
+    "pkgroll": "^2.17.0",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@types/numeric": "^1.2.6",
+    "nlapack": "^2.0.9",
+    "numeric": "^1.2.6",
+    "ts-key-enum": "^2.0.13",
+    "ts-matrix": "^1.4.1",
+    "ts-pattern": "^5.8.0"
+  }
+}

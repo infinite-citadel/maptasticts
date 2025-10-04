@@ -1,0 +1,19 @@
+{
+  "name": "simple",
+  "version": "1.0.0",
+  "description": "",
+  "source": "src/index.html",
+  "scripts": {
+    "start": "parcel"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "maptastic": "workspace:*"
+  },
+  "devDependencies": {
+    "parcel": "^2.16.0",
+    "process": "^0.11.10"
+  }
+}
